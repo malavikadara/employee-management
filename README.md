@@ -1,119 +1,96 @@
-# Employee Management API – FastAPI
+# Employee Management System
 
-A RESTful Employee Management application built using Python, FastAPI, SQLAlchemy, and PostgreSQL.
+Full-stack Employee Management application built using FastAPI, Python, SQLAlchemy, PostgreSQL, and React.
 
-## 1. Prerequisites
+## Tech Stack
 
-Install the following before running the application:
-
-- Python 3.9+
+### Backend
+- Python
+- FastAPI
+- Uvicorn
+- SQLAlchemy
 - PostgreSQL
-- pip
-- Git
-- VS Code (recommended)
+- Pydantic
 
-Check Python version:
+### Frontend
+- React
+- JavaScript
+- npm
 
-```bash
-python3 --version
+## Project Structure
+
+```text
+employee_FastApi/
+├── frontend/          # React application
+├── router/            # API routes
+├── services/          # Business logic
+├── database.py        # Database connection
+├── exceptions.py      # Custom exception handling
+├── main.py            # FastAPI application entry point
+├── models.py          # SQLAlchemy models
+├── schemas.py         # Pydantic schemas
+├── requirements.txt   # Python dependencies
+├── .gitignore
+└── README.md
 ```
 
-Check pip:
+## Backend Setup
 
-```bash
-pip3 --version
-```
-
-## 2. Clone the Repository
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/USERNAME/employee_FastApi.git
 cd employee_FastApi
 ```
 
-## 3. Create a Virtual Environment
-
-Create an isolated Python environment:
+### 2. Create Virtual Environment
 
 ```bash
 python3 -m venv .venv
 ```
 
-## 4. Activate the Virtual Environment
+### 3. Activate Virtual Environment
 
-For macOS/Linux:
+Mac/Linux:
 
 ```bash
 source .venv/bin/activate
 ```
 
-For Windows:
+Windows:
 
 ```bash
 .venv\Scripts\activate
 ```
 
-After activation, you should see `(.venv)` in your terminal.
-
-## 5. Install Dependencies
-
-Upgrade pip:
+### 4. Install Dependencies
 
 ```bash
 python -m pip install --upgrade pip
-```
-
-Install project dependencies:
-
-```bash
 pip install -r requirements.txt
 ```
 
-If requirements.txt is not available, install the main dependencies:
+### 5. Configure PostgreSQL
 
-```bash
-pip install fastapi uvicorn sqlalchemy psycopg python-dotenv
-```
+Create a PostgreSQL database named `employee`.
 
-## 6. Configure Database
-
-1. Install and start PostgreSQL.
-2. Create a database named `employee`.
-3. Configure your database connection string in the project's environment configuration.
-
-Example:
+Configure the database connection in your `.env` file:
 
 ```env
 DATABASE_URL=postgresql+psycopg://username:password@localhost:5432/employee
 ```
 
-Update the database username and password according to your local PostgreSQL configuration.
-
-Do not commit your `.env` file to GitHub.
-
-## 7. Run the FastAPI Application
-
-Start the development server using Uvicorn:
+### 6. Run FastAPI Application
 
 ```bash
 uvicorn main:app --reload
 ```
 
-If your application entry point is inside a package, adjust the module path accordingly.
-
-Example:
-
-```bash
-uvicorn app.main:app --reload
-```
-
-The application will run at:
+Backend URL:
 
 http://127.0.0.1:8000
 
-## 8. Access Swagger API Documentation
-
-FastAPI automatically generates interactive API documentation.
+### 7. API Documentation
 
 Swagger UI:
 
@@ -123,87 +100,63 @@ ReDoc:
 
 http://127.0.0.1:8000/redoc
 
-Use Swagger UI to test Employee CRUD operations:
+## Frontend Setup
 
-- Create Employee – POST
-- Get All Employees – GET
-- Get Employee By ID – GET
-- Update Employee – PUT
-- Delete Employee – DELETE
+Open a new terminal.
 
-## 9. Running the UI (React Frontend)
-
-If the project has a separate React frontend:
-
-Open another terminal and navigate to the frontend directory:
+### 1. Navigate to Frontend
 
 ```bash
 cd frontend
 ```
 
-Install dependencies:
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-Start the React development server:
+### 3. Start React Application
 
 ```bash
 npm run dev
 ```
 
-The frontend will run at the URL displayed in your terminal (usually http://localhost:5173 for Vite).
+Open the frontend URL displayed in your terminal.
 
-Make sure the frontend API configuration points to the FastAPI backend.
+## Running the Complete Application
 
-## 10. Stop the Application
+Run the backend and frontend in two separate terminals.
 
-Press:
-
-```bash
-CTRL + C
-```
-
-Deactivate the virtual environment:
+**Terminal 1 – FastAPI**
 
 ```bash
-deactivate
+source .venv/bin/activate
+uvicorn main:app --reload
 ```
 
-## 11. Git Commands
-
-Check modified files:
+**Terminal 2 – React**
 
 ```bash
-git status
+cd frontend
+npm run dev
 ```
 
-Add changes:
+## Git Commands
 
 ```bash
 git add .
-```
-
-Commit changes:
-
-```bash
-git commit -m "Add FastAPI employee management application"
-```
-
-Push changes to GitHub:
-
-```bash
+git commit -m "Update employee management application"
 git push origin main
 ```
 
-## Project Features
+## Features
 
-- FastAPI REST API
 - Employee CRUD operations
+- REST API development
 - PostgreSQL database integration
 - SQLAlchemy ORM
-- Virtual environment management
-- Exception handling
-- Request validation using Pydantic
-- Interactive Swagger documentation
+- Custom exception handling
+- Pydantic request validation
+- React frontend integration
+- Interactive Swagger API documentation
